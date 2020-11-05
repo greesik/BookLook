@@ -32,9 +32,12 @@ const Search = () => {
 
     return (
         <section id="search-section">
-            <form action="">
-                <input type="text" value={title} onChange={handleTitle} onSubmit={handleTitle}/>
-            </form>
+            <div className="search-header">
+                <h2>Wpisz tytuł, którego szukasz</h2>
+                <form action="">
+                    <input className="search-input" type="text" value={title.toUpperCase()} onChange={handleTitle} onSubmit={handleTitle}/>
+                </form>
+            </div>
             <div className="books-container">
                 {books.map(book =>
                 <div key={book.id} className={"book"}>
