@@ -8,8 +8,10 @@ const MainScreen = () => {
         <section id="main-screen">
             <img className="main-book" src={book} alt=""/>
             <div className="main-title-wrapper">
-                <div className="title">BookLook</div>
-                <div className="description">Znajdź książkę dla siebie</div>
+                <div className="title-description-container">
+                    <div className="title">BookLook</div>
+                    <div className="description">Znajdź książkę dla siebie</div>
+                </div>
                 <Link to={"search-section"} smooth={true}>
                     <button className="start">Zaczynajmy!</button>
                 </Link>
