@@ -1,0 +1,45 @@
+#main-screen {
+    height: 100vh;
+    width: 100vw;
+    background-color: darkcyan;
+    display: flex;
+    align-items: center;
+
+    .main-book {
+        height: 90%;
+        position: absolute;
+        right: 40vw;
+        box-shadow: 0 0 5px 10px darkcyan;
+    }
+
+    .main-title-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        color: white;
+        width: 50%;
+        height: 50%;
+        left: 50vw;
+
+        .title {
+            font-size: 70px;
+        }
+
+        .description {
+            font-size: 35px;
+        }
+
+        .start {
+            background: none;
+            outline: none;
+            color: white;
+            border: 0.75px solid white;
+            font-size: 20px;
+            padding: 25px;
+        }
+
+    }
+
+}

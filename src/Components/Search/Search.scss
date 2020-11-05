@@ -1,0 +1,15 @@
+#search-section {
+    height: 100vh;
+    background: burlywood;
+}
+
+// .book {
+//     box-sizing: border-box;
+//     display: inline-block;
+// }
+
+.books-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
