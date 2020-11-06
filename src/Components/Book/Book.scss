@@ -1,7 +1,11 @@
+@import "../../settings/fonts";
+
 .book-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 300px;
+    justify-content: flex-start;
     margin: 0 20px;
 
     .img-wrapper {
@@ -27,4 +31,61 @@
     }
 
 }
+
+.book-wrapper:hover {
+    cursor: pointer;
+    background: lightgrey;
+}
+
+
+.modal-header {
+
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $font-base;
+
+    .modal-close {
+        background: none;
+        border: none;
+        color: grey;
+        outline: none;
+        font-size: 20px;
+    }
+    
+    .modal-close:hover {
+        cursor: pointer;
+    }
+
+}
+
+.modal-cargo {
+
+    display: flex;
+    height: 80%;
+    align-items: center;
+    font-family: $font-base;
+
+    @media (max-width: 790px){
+        flex-direction: column;
+    }
+
+    .modal-img-wrapper {
+        width: auto;
+        height: auto;
+        min-height: 300px;
+        max-height: 100%;
+    }
+
+    .modal-description {
+        margin: 10px 40px;
+        height: 300px;
+    }
+
+}
+
+
 

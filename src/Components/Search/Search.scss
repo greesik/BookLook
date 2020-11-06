@@ -1,3 +1,5 @@
+@import "../../settings/fonts";
+
 *{
     margin: 0;
     padding: 0;
@@ -27,6 +29,7 @@
 
         h2 {
             font-size: 70px;
+            font-family: $font-base;
 
             @media (max-width: 790px){
                 font-size: 25px;
@@ -44,6 +47,7 @@
             width: 300px;
             font-size: 35px;
             text-align: center;
+            font-family: $font-base;
 
             @media (max-width: 790px){
                 margin: 5px 5px;
@@ -58,9 +62,12 @@
     
     .books-container {
         display: flex;
+        height: 100%;
         justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
         text-align: justify;
+        font-family: $font-base;
     }
 
 }

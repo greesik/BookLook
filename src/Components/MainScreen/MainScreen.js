@@ -1,12 +1,14 @@
 import React from 'react'
 import {Link} from 'react-scroll';
 import "./MainScreen.scss";
-import book from "../../img/Book-PNG-2.png";
+import booklook from "../../img/book-look.png";
+import booklook2 from "../../img/book-look-2.png";
 
 const MainScreen = () => {
     return (
         <section id="main-screen">
-            <img className="main-book" src={book} alt=""/>
+            <img className="main-book book-look-1" src={booklook} alt=""/>
+            <img className="main-book book-look-2" src={booklook2} alt=""/>
             <div className="main-title-wrapper">
                 <div className="title-description-container">
                     <div className="title">BookLook</div>

@@ -1,3 +1,5 @@
+@import "../../settings/fonts";
+
 #main-screen {
     height: 100vh;
     width: 100vw;
@@ -5,16 +7,36 @@
     display: flex;
     align-items: center;
 
+    @media (max-width: 790px){
+        justify-content: center;
+    }
+
     .main-book {
         height: 90%;
         position: absolute;
-        right: 40vw;
+        // right: 40vw;
         box-shadow: 0 0 5px 10px darkcyan;
 
         @media (max-width: 790px){
-            right: 0;
+            // right: 0;
         }
 
+    }
+
+    .book-look-1 {
+
+        @media (max-width: 790px){
+            display: none;
+        }
+
+    }
+
+    .book-look-2 {
+
+        @media (min-width: 791px){
+            display: none;
+        }
+        
     }
 
     .main-title-wrapper {
@@ -22,20 +44,21 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        position: absolute;
+        position: relative;
         color: white;
         width: 50%;
         height: 50%;
-        left: 50vw;
+        left: 40vw;
 
         @media (max-width: 790px){
             left: 0;
             width: 100%;
-            color: black;
+            // color: black;
         }
 
         .title {
-            font-size: 70px;
+            font-size: 120px;
+            font-family: $font-base;
 
             @media (max-width: 790px){
                 font-size: 45px;
@@ -46,10 +69,11 @@
         .description {
             font-size: 35px;
             font-weight: 100;
+            font-family: $font-base;
 
             @media (max-width: 790px){
                 font-size: 20px;
-                color: black;
+                // color: black;
             }
 
         }
@@ -62,10 +86,11 @@
             font-size: 20px;
             padding: 25px;
             transition: 0.5s;
+            font-family: $font-base;
 
             @media (max-width: 790px){
-                color: black;
-                border-color: black;
+                // color: black;
+                // border-color: black;
             }
         }
 
@@ -75,7 +100,7 @@
             color: darkcyan;
 
             @media (max-width: 790px){
-                background: black;
+                // background: black;
             }
 
         }

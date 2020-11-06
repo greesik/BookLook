@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import "./Search.scss";
 import Book from '../Book/Book';
 import LazyLoad from 'react-lazyload';
+import Fade from 'react-reveal/Fade';
 
 const Search = () => {
 
@@ -25,10 +26,22 @@ const Search = () => {
         bookTitle = title;
         bookAuthor = author;
         bookLanguage = language.toLowerCase();
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=`+(bookTitle && `+intitle:${bookAuthor}`)+(bookAuthor && `+inauthor:${bookAuthor}`)+(bookLanguage && `&langRestrict=`+bookLanguage)+`&printType=books&maxResults=40`)
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=`
+            +(bookTitle.length > 0 ? `+intitle:${bookTitle}` : '')
+            +(bookAuthor.length > 0 ? `+inauthor:${bookAuthor}` : '')
+            +(bookLanguage.length > 0 ? `&langRestrict=`+bookLanguage : '')
+            +`&printType=books&maxResults=40`)
             .then(resp => resp.json())
             .then(allBooks => setBooks(allBooks.items))
     };
+
+    // console.log(`https://www.googleapis.com/books/v1/volumes?q=`
+    // +(title.length > 0 ? `+intitle:${title}` : '')
+    // +(author.length > 0 ? `+inauthor:${author}` : '')
+    // +(language.length > 0 ? `&langRestrict=`+language : '')
+    // +`&printType=books&maxResults=40`);
+    
+    // console.log(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title}+inauthor:${author}&langRestrict=`+language+`&printType=books&maxResults=40`);
 
     useEffect(() => {
         fetchBooks();
@@ -40,30 +53,32 @@ const Search = () => {
         <section id="search-section">
             <div className="search-header">
                 <h2>What are you looking for?</h2>
-                <form>
-                    <input 
-                    className="search-input" 
-                    type="text" 
-                    value={title.toUpperCase()} 
-                    onChange={handleTitle} 
-                    placeholder="TITLE"
-                    />
-                    <input 
-                    className="search-input" 
-                    type="text" 
-                    value={author.toUpperCase()} 
-                    onChange={handleAuthor} 
-                    placeholder="AUTHOR"
-                    />
-                    <input 
-                    className="search-input" 
-                    type="text" 
-                    value={language.toUpperCase()} 
-                    onChange={handleLanguage} 
-                    maxLength={2}
-                    placeholder="LANGUAGE"
-                    />
-                </form>
+                <Fade cascade>
+                    <form>
+                        <input 
+                        className="search-input" 
+                        type="text" 
+                        value={title.toUpperCase()} 
+                        onChange={handleTitle} 
+                        placeholder="TITLE"
+                        />
+                        <input 
+                        className="search-input" 
+                        type="text" 
+                        value={author.toUpperCase()} 
+                        onChange={handleAuthor} 
+                        placeholder="AUTHOR"
+                        />
+                        <input 
+                        className="search-input" 
+                        type="text" 
+                        value={language.toUpperCase()} 
+                        onChange={handleLanguage} 
+                        maxLength={2}
+                        placeholder="LANGUAGE"
+                        />
+                    </form>
+                </Fade>
             </div>
             <div className="books-container">
                 {books && (title.length > 0 || author.length > 0 || language.length > 0) ? books.map(book =>
