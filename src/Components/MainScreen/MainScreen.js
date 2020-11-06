@@ -10,10 +10,10 @@ const MainScreen = () => {
             <div className="main-title-wrapper">
                 <div className="title-description-container">
                     <div className="title">BookLook</div>
-                    <div className="description">Znajdź książkę dla siebie</div>
+                    <div className="description">Find a book for yourself</div>
                 </div>
                 <Link to={"search-section"} smooth={true}>
-                    <button className="start">Zaczynajmy!</button>
+                    <button className="start">Let's go!</button>
                 </Link>
             </div>
         </section>
