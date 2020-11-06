@@ -40,9 +40,17 @@ const Book = ({volumeInfo}) => {
     return (
         volumeInfo ?
         <div className="book-wrapper" onClick={handleOpenModal}>
-            <div className="img-wrapper" style={{background:`url(${image}) no-repeat center`, backgroundPosition:"center", backgroundSize:"contain"}}></div>
+            <div className="img-wrapper" style={
+                {
+                    background:`url(${image}) no-repeat center`, 
+                    backgroundPosition:"center", 
+                    backgroundSize:"contain"
+                    }}>
+            </div>
             <div className={"book-basic-details-title"}>{volumeInfo.title}</div>
-            {volumeInfo.authors ? <div className={"book-basic-details-title"}>by {volumeInfo.authors[0]}</div> : <></>}
+            {volumeInfo.authors ? 
+            <div className={"book-basic-details-title"}>by {volumeInfo.authors[0]}</div> 
+            : <></>}
             <div className={"book-basic-details"}>{volumeInfo.description}</div>
             <Modal
                 isOpen={modalIsOpen}
@@ -53,7 +61,9 @@ const Book = ({volumeInfo}) => {
                     <header className="modal-header">
                         <div className="modal-title-author-wrapper">
                             <h2 className="modal-title">{volumeInfo.title}</h2>
-                            {volumeInfo.authors ? <div className={"book-basic-details-title"}>by {volumeInfo.authors[0]}</div> : <></>}
+                            {volumeInfo.authors ? 
+                            <div className={"book-basic-details-title"}>by {volumeInfo.authors[0]}</div>
+                            : <></>}
                         </div>
                         <button className="modal-close" onClick={handleCloseModal}>X</button>
                     </header>

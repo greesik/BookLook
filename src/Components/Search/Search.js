@@ -35,14 +35,6 @@ const Search = () => {
             .then(allBooks => setBooks(allBooks.items))
     };
 
-    // console.log(`https://www.googleapis.com/books/v1/volumes?q=`
-    // +(title.length > 0 ? `+intitle:${title}` : '')
-    // +(author.length > 0 ? `+inauthor:${author}` : '')
-    // +(language.length > 0 ? `&langRestrict=`+language : '')
-    // +`&printType=books&maxResults=40`);
-    
-    // console.log(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title}+inauthor:${author}&langRestrict=`+language+`&printType=books&maxResults=40`);
-
     useEffect(() => {
         fetchBooks();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,7 +74,7 @@ const Search = () => {
             </div>
             <div className="books-container">
                 {books && (title.length > 0 || author.length > 0 || language.length > 0) ? books.map(book =>
-                <LazyLoad>
+                <LazyLoad key={book.id} >
                     <div 
                     key={book.id} 
                     className={"book"}>
