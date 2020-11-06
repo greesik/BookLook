@@ -65,11 +65,18 @@ const Book = ({volumeInfo}) => {
                             <div className={"book-basic-details-title"}>by {volumeInfo.authors[0]}</div>
                             : <></>}
                         </div>
-                        <button className="modal-close" onClick={handleCloseModal}>X</button>
+                        <button className="modal-close" onClick={handleCloseModal}>x</button>
                     </header>
                     <div className="modal-cargo">
                         <img className="modal-img-wrapper" src={imageLarge} alt={volumeInfo.title + " cover"}></img>
-                        <div className="modal-description">{volumeInfo.description}</div>
+                        <div className="modal-cargo-wrapper">
+                            <div className="modal-description">{volumeInfo.description}</div>
+                            <div className="modal-published-date">Published: {volumeInfo.publishedDate}</div>
+                            <div className="modal-publisher">Publisher: {volumeInfo.publisher}</div>
+                            {volumeInfo.pageCount ? 
+                            <div className="modal-pagecount">Pages: {volumeInfo.pageCount}</div>
+                            : <></>}
+                        </div>
                     </div>
             </Modal>
         </div> : <div></div>

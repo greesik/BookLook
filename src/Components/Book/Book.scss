@@ -80,10 +80,22 @@
         max-height: 100%;
     }
 
-    .modal-description {
-        margin: 10px 40px;
+    .modal-cargo-wrapper {
+
+        display: flex;
+        flex-direction: column;
         height: 300px;
+
+        .modal-description, 
+        .modal-published-date, 
+        .modal-publisher,
+        .modal-pagecount {
+            margin: 10px 40px;
+        }
+
     }
+
+    
 
 }
 
