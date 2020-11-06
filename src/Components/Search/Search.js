@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import "./Search.scss";
 import Book from '../Book/Book';
+import LazyLoad from 'react-lazyload';
 
 const Search = () => {
 
@@ -24,26 +25,22 @@ const Search = () => {
         bookTitle = title;
         bookAuthor = author;
         bookLanguage = language.toLowerCase();
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${bookTitle}+inauthor:${bookAuthor}&langRestrict=`+bookLanguage+`&printType=books`)
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=`+(bookTitle && `+intitle:${bookAuthor}`)+(bookAuthor && `+inauthor:${bookAuthor}`)+(bookLanguage && `&langRestrict=`+bookLanguage)+`&printType=books&maxResults=40`)
             .then(resp => resp.json())
             .then(allBooks => setBooks(allBooks.items))
     };
 
-    // console.log(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title}+inauthor:${author}&langRestrict=`+(language.toLowerCase())+`&printType=books`)
-    
     useEffect(() => {
         fetchBooks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [title, author, language]);
 
-    useEffect(() => {
-        console.log(books);
-    }, [books])
     
     return (
         <section id="search-section">
             <div className="search-header">
                 <h2>What are you looking for?</h2>
-                <form action="">
+                <form>
                     <input 
                     className="search-input" 
                     type="text" 
@@ -70,9 +67,17 @@ const Search = () => {
             </div>
             <div className="books-container">
                 {books && (title.length > 0 || author.length > 0 || language.length > 0) ? books.map(book =>
-                <div key={book.id} className={"book"}>
-                    <Book key={book.id} {...book}/>
-                </div>) : <div>There is no such book in our database</div>}
+                <LazyLoad>
+                    <div 
+                    key={book.id} 
+                    className={"book"}>
+                        <Book 
+                        key={book.id} 
+                        {...book}
+                        />
+                    </div> 
+                </LazyLoad>
+                ) : <div>There is no such book in our database</div>}
             </div>    
         </section>
     )

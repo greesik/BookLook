@@ -10,6 +10,11 @@
         position: absolute;
         right: 40vw;
         box-shadow: 0 0 5px 10px darkcyan;
+
+        @media (max-width: 790px){
+            right: 0;
+        }
+
     }
 
     .main-title-wrapper {
@@ -23,13 +28,30 @@
         height: 50%;
         left: 50vw;
 
+        @media (max-width: 790px){
+            left: 0;
+            width: 100%;
+            color: black;
+        }
+
         .title {
             font-size: 70px;
+
+            @media (max-width: 790px){
+                font-size: 45px;
+            }
+
         }
 
         .description {
             font-size: 35px;
             font-weight: 100;
+
+            @media (max-width: 790px){
+                font-size: 20px;
+                color: black;
+            }
+
         }
 
         .start {
@@ -40,12 +62,22 @@
             font-size: 20px;
             padding: 25px;
             transition: 0.5s;
+
+            @media (max-width: 790px){
+                color: black;
+                border-color: black;
+            }
         }
 
         .start:hover {
             cursor: pointer;
             background: white;
             color: darkcyan;
+
+            @media (max-width: 790px){
+                background: black;
+            }
+
         }
 
     }
