@@ -36,7 +36,7 @@ const Search = () => {
     };
 
     useEffect(() => {
-        fetchBooks();
+        (title || author || language) && fetchBooks();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [title, author, language]);
 
