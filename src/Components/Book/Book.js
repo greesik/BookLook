@@ -70,9 +70,15 @@ const Book = ({volumeInfo}) => {
                     <div className="modal-cargo">
                         <img className="modal-img-wrapper" src={imageLarge} alt={volumeInfo.title + " cover"}></img>
                         <div className="modal-cargo-wrapper">
+                            {volumeInfo.description ? 
                             <div className="modal-description">{volumeInfo.description}</div>
+                            : <div className="modal-description">There's no description available.</div>}
+                            {volumeInfo.publishedDate ? 
                             <div className="modal-published-date">Published: {volumeInfo.publishedDate}</div>
+                            : <></>}
+                            {volumeInfo.publisher ? 
                             <div className="modal-publisher">Publisher: {volumeInfo.publisher}</div>
+                            : <></>}
                             {volumeInfo.pageCount ? 
                             <div className="modal-pagecount">Pages: {volumeInfo.pageCount}</div>
                             : <></>}
